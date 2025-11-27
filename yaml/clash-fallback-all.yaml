@@ -1,93 +1,5 @@
-# ========================
-# Clash-ALL 优化配置
-# ========================
-
-# 机场节点订阅
-
-proxy-providers:
-
-  优速通:
-    url: "机场订阅地址"
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: 直连 
-
-  火烧云:
-    url: "机场订阅地址"
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: 直连 
-    
-  小牛:
-    url: "机场订阅地址"
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: 直连    
-
-  PolYun:
-    url: "机场订阅地址"
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: 直连
-
-  无界云:
-    url: "机场订阅地址"
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: 直连
-   
-  猫耳:
-    url: "机场订阅地址"
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: 直连   
-
-  快猫:
-    url: "机场订阅地址"
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: 直连    
-    
-  BestVPN:
-    url: "机场订阅地址"
-    type: http
-    interval: 86400
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 300
-    proxy: 直连    
-
-  牛逼:
-    url: "机场订阅地址"
+  自建:
+    url: "http://160.34.209.204:3008/T3B9dgzBzdRbBF8Aqx8P/download/%E8%87%AA%E5%BB%BA?target=V2Ray"
     type: http
     interval: 86400
     health-check:
@@ -137,33 +49,6 @@ dns:
     - +.lan
     - +.local
     - geosite:cn
-# 快猫    
-    - +.km688.ink
-# 火烧 
-    - +.onesubv.site
-    - +.oneyyds.online
-    - +.fengyyds.site
-    - +.onemg.top    
-# 猫耳 
-    - +.chybinc.com
-# BestVPN 
-    - +.invitevp.com
-    - +.vp2.us
-# 小牛
-    - +.xiaoniuyun.cc  
-# 硅谷
-    - +.apple-bing.sbs  
-# 无界
-    - +.bncrcloud.com
-# 冰云
-    - +.xby01.xyz
-# 牛逼   
-    - +.idsduf.com  
-    - +.66jc.top
-# 极速通        
-    - +.gfw.gg
-# 萌狗       
-    - +.moedog.cloud
 
 # 其他     
     - +.ynhtbank.com
@@ -205,13 +90,7 @@ default: &default
     - 直连
     - 所有-手动
     - 所有-自动
-    - 香港-故转
-    - 台湾-故转
-    - 日本-故转
-    - 新加坡-故转
-    - 韩国-故转
     - 美国-故转
-    - 英国-故转
     - 其他-故转
     - 拒绝
 
@@ -267,14 +146,7 @@ proxy-groups:
     interval: 300
     filter: "^((?!(直连|拒绝)).)*$"
 
-  # 香港组
-  - name: 香港-故转
-    type: fallback
-    interval: 300
-    lazy: false
-    proxies:
-      - 香港-手动
-      - 香港-自动
+  
   
   - name: 香港-手动
     type: select
@@ -307,62 +179,6 @@ proxy-groups:
     interval: 300
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
 
-  # 日本组
-  - name: 日本-故转
-    type: fallback
-    interval: 300
-    lazy: false
-    proxies:
-      - 日本-手动
-      - 日本-自动
-  - name: 日本-手动
-    type: select
-    include-all: true
-    filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
-  - name: 日本-自动
-    type: url-test
-    include-all: true
-    tolerance: 50
-    interval: 300
-    filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
-
-  # 新加坡组
-  - name: 新加坡-故转
-    type: fallback
-    interval: 300
-    lazy: false
-    proxies:
-      - 新加坡-手动
-      - 新加坡-自动
-  - name: 新加坡-手动
-    type: select
-    include-all: true
-    filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
-  - name: 新加坡-自动
-    type: url-test
-    include-all: true
-    tolerance: 50
-    interval: 300
-    filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
-
-  # 韩国组
-  - name: 韩国-故转
-    type: fallback
-    interval: 300
-    lazy: false
-    proxies:
-      - 韩国-手动
-      - 韩国-自动
-  - name: 韩国-手动
-    type: select
-    include-all: true
-    filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
-  - name: 韩国-自动
-    type: url-test
-    include-all: true
-    tolerance: 50
-    interval: 300
-    filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
 
   # 美国组
   - name: 美国-故转
@@ -383,24 +199,6 @@ proxy-groups:
     interval: 300
     filter: "(?=.*(广美|US|美国|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
 
-  # 英国组
-  - name: 英国-故转
-    type: fallback
-    interval: 300
-    lazy: false
-    proxies:
-      - 英国-手动
-      - 英国-自动
-  - name: 英国-手动
-    type: select
-    include-all: true
-    filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
-  - name: 英国-自动
-    type: url-test
-    include-all: true
-    tolerance: 50
-    interval: 300
-    filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
 
   # 其他组
   - name: 其他-故转
@@ -543,4 +341,5 @@ rule-providers:
   
 
 #  GateFireWall / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/gfw.mrs"}
+
 
