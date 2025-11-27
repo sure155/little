@@ -1,3 +1,5 @@
+proxy-providers:
+
   自建:
     url: "http://160.34.209.204:3008/T3B9dgzBzdRbBF8Aqx8P/download/%E8%87%AA%E5%BB%BA?target=V2Ray"
     type: http
@@ -341,5 +343,6 @@ rule-providers:
   
 
 #  GateFireWall / Domain: {<<: *domain, url: "https://gh-proxy.com/github.com/metacubex/meta-rules-dat/raw/refs/heads/meta/geo/geosite/gfw.mrs"}
+
 
 
